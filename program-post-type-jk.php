@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Custom Post for Events
+Plugin Name: Custom Post for Programs
 Plugin URI: 
-Description: A custom post for events 
+Description: A custom post for programs
 Author: Josh Kerbel
 Author URI: www.google.com
 Version: 1.0.0
