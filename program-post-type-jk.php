@@ -76,15 +76,19 @@ add_action('init', 'create_program_cpt', 10);
 
 
 // Register the custom post type template
-function my_custom_post_type_template($template)
+function my_custom_post_type_program_template($template)
 {
     global $post;
 
     if ($post->post_type == 'program') {
-        $template = dirname(__FILE__) . '/templates/single-program.php';
+        if (is_single()) {
+            return plugin_dir_path(__FILE__) . '/templates/single-program.php';
+        } elseif (is_archive()) {
+            return plugin_dir_path(__FILE__)  . '/templates/archive-program.php';
+        }
     }
 
     return $template;
 }
 
-add_filter('single_template', 'my_custom_post_type_template');
+add_filter('template_include', 'my_custom_post_type_program_template');
