@@ -74,15 +74,13 @@ function my_custom_post_type_professor_template($template)
 {
     global $post;
 
-    if ($post->post_type == 'program') {
+    if ($post->post_type == 'professor') {
         if (is_single()) {
-            return plugin_dir_path(__FILE__) . '/templates/single-program.php';
-        } elseif (is_archive()) {
-            return plugin_dir_path(__FILE__)  . '/templates/archive-program.php';
+            return plugin_dir_path(__FILE__) . '/templates/single-professor.php';
         }
     }
 
     return $template;
 }
 
-add_filter('template_include', 'my_custom_post_type_program_template');
+add_filter('template_include', 'my_custom_post_type_professor_template');
